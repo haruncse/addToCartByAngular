@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+.card-text{
+    text-align: center;
+}
+.cartItem{
+    text-align: right;
+    margin: 0px;
+}
+.cart-price{
+    color: red;
+}
+.cart-item{
+    font-size: small;
+}
+.al-right{
+    text-align: right;
+}
+.al-left{
+    text-align: left;
+}
+.al-center{
+    text-align: center;
+}
+.pdz{
+    padding: 0px;
+}
+.top-bar{
+    margin-bottom: 10px;
+}

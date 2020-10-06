@@ -1,0 +1,21 @@
+<div *ngIf = "cartItems.length == 0" class="alert pdz">
+   No Product in the cart
+</div>
+<ul *ngIf = "cartItems.length > 0" class="list-group">
+   <li  class="list-group-item" *ngFor="let cart of cartItems">
+      <div class="cart-item">
+         
+         <span class="cart-price"> <button class="btn btn-link" (click)="deleteCart(cart)">x</button>  </span> <span> {{(cart.productName.length > 22)? (cart.productName | slice:0:20)+'..':(cart.productName) }}</span> <span><img width="15%" height="15%" src="{{cart.imageURL}}" alt="Image"></span> 
+         <br><strong> {{cart.qty}} * {{cart.price | currency :'USD'}}</strong>
+      </div>
+   </li>
+   <li class="list-group-item">
+     <strong>subtotal: {{ cartTotal | currency:'USD'}} </strong>
+   </li>
+   <div class="btn-group">
+      <button type="button" 
+      class="btn btn-sm btn-outline-secondary product-btn"
+      > View Cart </button>
+      <button type="button" class="btn btn-sm btn-outline-secondary product-btn">Check Out</button>
+  </div>
+ </ul>
