@@ -1,23 +1,38 @@
 <div class="row">
     <div class="col-md-10">
+        <div class="row top-bar">
+            <div class="col-md-6 al-left">
+                Showing Product
+            </div>
+            <div class="col-md-6 al-right">
+                <app-drop-down-lists></app-drop-down-lists>
+            </div>
+        </div>
         <div class="row">
-            <div class="col-md-3" *ngFor = "let product of products;">
+            <div class="col-md-3" *ngFor="let product of products;">
                 <div class="card mb-3 shadow-sm al-center">
                     <img class="bd-placeholder-img card-img-top p-2" src="{{product.picture}}" width="100%" />
                     <div class="card-body">
-                        <a class="card-text"  [routerLink]="['/products',product._id]">
+                        <a class="card-text" [routerLink]="['/products',product._id]">
                             {{(product.title.length > 22)? (product.title | slice:0:20)+'..':(product.title) }}
                         </a>
                         <p class="card-text cart-price">{{product.price | currency:'USD' }}</p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" 
-                                class="btn btn-sm btn-outline-secondary product-btn"
-                                (click)="handleAddToCart(product)">
-                                    <span class="glyphicon glyphicon-shopping-cart"></span> 
+                            <div class="btn-group container-fluid btn-border">
+
+                                <button type="button" class="btn btn-sm btn-outline-secondary product-btn"
+                                    (click)="handleAddToCart(product)">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span>
                                     Add To Cart
                                 </button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary product-btn">View Cart</button>
+                                <div *ngFor="let cart of cartItemList;"></div>
+
+                                <div *ngFor="let cart of cartItemList;">
+                                    <button type="button" *ngIf="cart.productID===product._id"
+                                        class="btn btn-sm btn-outline-secondary product-btn">View
+                                        Cart</button>
+                                </div>
+
                             </div>
                             <!--<app-add-to-cart-button-item></app-add-to-cart-button-item>-->
                         </div>

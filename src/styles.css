@@ -26,3 +26,23 @@
 .top-bar{
     margin-bottom: 10px;
 }
+
+.btn-link{
+    color: red !important;
+}
+.right-margin{
+    margin-right: 10px;
+    border-radius: 0px ;
+}
+.list-group-item{
+    border: none;
+}
+.btn{
+    border-radius: 0px !important;
+}
+.card-body{
+    padding: 0px;
+}
+.btn-border{
+    border-top: 1px solid rgba(0,0,0,.075)!important;
+}

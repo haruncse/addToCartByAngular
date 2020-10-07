@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { products } from '../products';
+import { MessengerService } from '../services/messenger.service';
 @Component({
   selector: 'app-product-items',
   templateUrl: './product-items.component.html',
@@ -9,18 +10,17 @@ import { products } from '../products';
 export class ProductItemsComponent implements OnInit {
 
   products = products;
-  constructor(private activatedRoute: ActivatedRoute) { }
+  @Input() productItem;
+  constructor(private activatedRoute: ActivatedRoute,private msg: MessengerService) { }
   singleProduct  ;
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params:any)=> {
-      console.log(params.productId);
+      //console.log(params.productId);
       this.singleProduct=products.find(el => el._id==params.productId); 
-      /*products.forEach(item => {
-        if(item._id==params.productId){
-          this.singleProduct=item;
-          //this.break;
-        }
-      });*/
     })
+  }
+  handleAddToCart(product){
+    //console.log(product);
+    this.msg.senMsg(product);
   }
 }

@@ -1,21 +1,19 @@
 <div *ngIf = "cartItems.length == 0" class="alert pdz">
-   No Product in the cart
+   No Products in the cart
 </div>
 <ul *ngIf = "cartItems.length > 0" class="list-group">
-   <li  class="list-group-item" *ngFor="let cart of cartItems">
+   <li  class="list-group-item pdz" *ngFor="let cart of cartItems">
       <div class="cart-item">
-         
-         <span class="cart-price"> <button class="btn btn-link" (click)="deleteCart(cart)">x</button>  </span> <span> {{(cart.productName.length > 22)? (cart.productName | slice:0:20)+'..':(cart.productName) }}</span> <span><img width="15%" height="15%" src="{{cart.imageURL}}" alt="Image"></span> 
-         <br><strong> {{cart.qty}} * {{cart.price | currency :'USD'}}</strong>
+         <span class="cart-price"> <button class="btn btn-link pdz" (click)="deleteCart(cart)">x</button>  </span> <span> {{(cart.productName.length > 24)? (cart.productName | slice:0:22)+'..':(cart.productName) }}</span><span class="right-margin"></span><span><img width="15%" height="15%" src="{{cart.imageURL}}" alt="Image"></span> 
+         <br><span class="right-margin"></span><span>{{cart.qty}} * {{cart.price | currency :'USD'}}</span>
       </div>
    </li>
-   <li class="list-group-item">
-     <strong>subtotal: {{ cartTotal | currency:'USD'}} </strong>
+   <li class="list-group-item pdz">
+     <strong> subtotal: </strong> {{ cartTotal | currency:'USD'}} 
    </li>
-   <div class="btn-group">
-      <button type="button" 
-      class="btn btn-sm btn-outline-secondary product-btn"
+   <li class="list-group-item pdz">
+      <button type="button" class=" btn-sm btn btn-dark right-margin" routerLink="/cart"
       > View Cart </button>
-      <button type="button" class="btn btn-sm btn-outline-secondary product-btn">Check Out</button>
-  </div>
+      <button type="button" class="btn btn-sm btn btn-dark">Check Out</button>
+   </li>
  </ul>

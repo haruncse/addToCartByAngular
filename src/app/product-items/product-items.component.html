@@ -1,13 +1,20 @@
 <div class="row">
    <div class="col-md-10">
       <div class="row top-bar">
-         <div class="col-md-6">
-            <img src="{{singleProduct.picture}}" alt="">
+         <div class="col-md-3">
+            <img class="rounded float-left img-fluid" src="{{singleProduct.picture}}" alt="">
          </div>
-         <div class="col-md-6">
-            {{singleProduct.title}}
-            {{singleProduct.price | currency: 'USD'}}
-            {{singleProduct.description}}
+         <div class="col-md-9">
+            <h4>{{singleProduct.title}}</h4>
+            <p class="cart-price">{{singleProduct.price | currency: 'USD'}} </p>
+            {{(singleProduct.description.length > 250)? (singleProduct.description | slice:0:250)+'':(singleProduct.description) }}
+            <div class="row">
+               <div class="col-md-1"><input type="number" min="1" value="1" class="form-control form-control-sm"></div>
+               <div class="col-md-4 pdz"><button type="button" class="btn btn-dark btn-sm" (click)="handleAddToCart(singleProduct)">
+                  Add To Cart
+               </button></div>
+               
+            </div>
          </div>
       </div>
       <div class="col-md-12">

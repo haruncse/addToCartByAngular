@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SingleProductCardItemComponent } from './single-product-card-item/single-product-card-item.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SmallCartModule } from '../small-cart/small-cart.module';
+import {DropDownListModule} from '../drop-down-list/drop-down-list.module'
 
 //import { products } from 'src/app/products';
 const routes: Routes = [ 
@@ -13,7 +14,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SmallCartModule
+    SmallCartModule,
+    DropDownListModule
   ],
   exports:[
     SingleProductCardItemComponent

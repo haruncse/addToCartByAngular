@@ -4,10 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductItemsComponent } from './product-items/product-items.component';
 
 const routes: Routes = [ 
+  { path: 'cart', loadChildren: () => import("./cart-product-list-table/cart-product-list-table.module").then(m => m.CartProductListTableModule), },
   { path: 'products/:productId', component: ProductItemsComponent },
   { path: '', loadChildren: () => import("./single-product-card/single-product-card.module").then(m => m.SingleProductCardModule), },
 
-  //{ path: 'test', component: ProductItemsComponent }
 ];
 
 @NgModule({
