@@ -25,7 +25,7 @@ export class SmallCartItemsComponent implements OnInit {
     });
     //console.log(this.msg.getMsg());
     this.msg.getMsg().subscribe((product) => {
-      console.log("Get Message", product);
+      //console.log("Get Message", product);
       this.cartItems = [];
       this.itemFound = false;
       this.itemIndex=-1;
