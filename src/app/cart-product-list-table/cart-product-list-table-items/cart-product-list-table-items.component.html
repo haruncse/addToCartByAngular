@@ -1,3 +1,39 @@
+<div class="row">
+    <div class="col-12">
+        <table class="table table-bordered table-image">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cart of cartList">
+                    <td><a href="">x</a></td>
+                    <td class="w-25">
+                        <span><img class="img-fluid img-thumbnail" src="{{cart.imageURL}}" alt=""></span>
+                    </td>
+                    <td>{{cart.productName}}</td>
+                    <td>{{cart.price}}</td>
+                    <td><input type="number" value="{{cart.qty}}" [(ngModel)]="cart.qty" required></td>
+                    <td>{{cart.qty * cart.price}}</td>
+                </tr>
+                <tr>
+                    <td colspan="6"><button class="btn btn-sm">Update cart</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-12">
+        <div class="col-6">
 
-<p>cart-product-list-table-items works!</p>
-
+        </div>
+        <div class="col-6">
+           <!--  <app-cart-total-list-table-items></app-cart-total-list-table-items> -->
+        </div>
+    </div>
+</div>
